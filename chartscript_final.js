@@ -14,12 +14,12 @@ function createChart2(){
     // }]
     var title = 'Compare Travel Distance and Commute Flow Volume in UK - Prediction and Actual Flow';
     
-    var pointx1 = 'distance';
+    var pointx1 = 'All';
     var pointx1_prefix = '';
     var pointx1_postfix = 'm';
 
     var pointy1 = 'All';
-    var pointy2 = 'pred_flow';
+    var pointy2 = 'pre_flow';
 
     var pointz = 'res_pop'
     var x_axis = 'Travel Distance in metres';
@@ -32,7 +32,7 @@ function createChart2(){
     var show_grid = true;
 
     //read csv
-    $.get('prediction.csv', function(csvString) {
+    $.get('prediction2.csv', function(csvString) {
         var rows = Papa.parse(csvString, {header: true}).data;
 
         var data1 = rows.map(function(row) {
@@ -97,6 +97,7 @@ function createChart2(){
                     yAxes: [{
                         type: 'logarithmic',
                         ticks: {
+                            max: 10000,
                             callback: function(tick) {
                                 var remain = tick / (Math.pow(10, Math.floor(Chart.helpers.log10(tick))));
                                 if (remain === 1 || remain === 2 || remain === 5) {

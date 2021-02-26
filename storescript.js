@@ -55,7 +55,7 @@ $(document).ready(function (){
     };
 
     info.update =function (props) {
-        this._div.innerHTML = '<h4>Greater London <br />Employment-Usuak Residents Ratio</h4>' + (props?
+        this._div.innerHTML = '<h4>Greater London <br />Employment-Usual Residents Ratio</h4>' + (props?
             '<b>' + props.MSOA11NM + '</b><br />' + props.empratio.toFixed(3) : 'Hover over '); 
     };
 
